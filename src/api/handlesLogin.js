@@ -2,14 +2,16 @@ import { urlBase } from "../config/config";
 
 export const handleLogin = async(username,clave,navigation) => {
     // Aquí agregarás la lógica de autenticación   
+    console.log("enter hangle login");
+    
+    
     try {
-        //console.log(urlBase);
         const res = await fetch(urlBase + "/login", {
-            method: 'POST', // Puedes usar 'PUT' si es más apropiado
+            method: 'POST', 
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({"userName": username,"clave": clave}), // Convierte el arreglo a JSON
+            body: JSON.stringify({"userName": username,"clave": clave}), 
         }) 
         .then(response => {
             if (!response.ok) {throw new Error('Network response was not ok');}
@@ -25,7 +27,7 @@ export const handleLogin = async(username,clave,navigation) => {
             }            
             else{
                 console.log("Usuario incorrecto !!" , res);                
-                //navigation.navigate('Home');
+                navigation.navigate('Home');
             }
         }
         else{

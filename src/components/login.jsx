@@ -10,7 +10,7 @@ const Login = ({navigation})=>{
     const [clave,setUserPassword] = useState('');
 
     const handleLoginButton = () => {
-        // Llama a handlesLogin con los valores
+        // Llama a handlesLogin con los valores   
         handleLogin(username,clave,navigation);        
     };
 

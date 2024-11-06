@@ -36,6 +36,8 @@ const Maps = ({navigation}) => {
 
     useEffect(() => {       
         // Llamar a la función para obtener la ubicación
+        console.log("enter geolocation");
+        
         getLocation().then(value => {            
             const lat = value.latitude;
             const lon = value.longitude;            
@@ -53,7 +55,7 @@ const Maps = ({navigation}) => {
             <TopBar draw={navigation}/>     
             <SwitchColor change={shangeColor} />  
             <View style={styleMap.mapContainer}>
-                {currentLocation && data ? (
+                {currentLocation ? (
                     <MapView
                         style={styleMap.map}
                         initialRegion={{
@@ -68,7 +70,7 @@ const Maps = ({navigation}) => {
                         onRegionChangeComplete={handleZoomChange}
                         zoomEnabled={true}
                     >   
-                    { zoomLevel <= 0.05 && (
+                    { zoomLevel <= 0.05 && data &&(
                          data.map(value =>{
                             //console.log(value);
                             return <Marker
