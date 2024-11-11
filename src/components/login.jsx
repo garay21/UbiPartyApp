@@ -1,18 +1,28 @@
 import React , { useEffect, useState } from "react";
-import { View, TextInput, Text, TouchableOpacity, Image} from "react-native";
+import { View, TextInput, Text, TouchableOpacity, ActivityIndicator, Image} from "react-native";
 import { styleLogin } from "./styles/style.jsx";
 import { handleLogin } from "./../api/handlesLogin.js";
 
 import { logo1,logo2,logo3,logoLetter,logo4 } from "../assets/imgRoute.jsx";
 
 const Login = ({navigation})=>{
-    const [username,setUsername] = useState('');
-    const [clave,setUserPassword] = useState('');
+    const [username, setUsername] = useState('');
+    const [clave, setUserPassword] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
+    const [loginMessage, setMessage] = useState('')
 
-    const handleLoginButton = () => {
+    const handleLoginButton = async () => {
         // Llama a handlesLogin con los valores   
-        handleLogin(username,clave,navigation);        
+        setIsLoading(true)
+        const {msg , auth} = await handleLogin(username,clave);
+        setIsLoading(false)
+        setMessage(msg)
+        if(auth) navigation.navigate('Home')            
     };
+
+    const changeCreateAcount = () => {
+        navigation.navigate('SignIn')
+    }
 
     return (
         <View style={styleLogin.container}>
@@ -40,7 +50,20 @@ const Login = ({navigation})=>{
             />
             <TouchableOpacity style={styleLogin.button} onPress={handleLoginButton}>
                 <Text style={styleLogin.buttonText}>Iniciar Sessión</Text>
-            </TouchableOpacity>            
+            </TouchableOpacity>          
+            <TouchableOpacity style={styleLogin.button}>
+                <Text style={styleLogin.buttonText} onPress={changeCreateAcount}>Crear Usuario</Text>
+            </TouchableOpacity>    
+            {
+                isLoading && (
+                    <ActivityIndicator size="large" color="#0000ff"/>
+                )
+            }   
+            {
+                loginMessage && (
+                    <Text>{loginMessage}</Text>
+                )
+            }                   
         </View>
     );
 };

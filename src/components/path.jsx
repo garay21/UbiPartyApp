@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Login from "./login.jsx";
 import SliceBar from "./sliceBar.jsx";
+import SignIn from "./signin.jsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -13,6 +14,7 @@ const Routes = () => {
             <Stack.Navigator initialRouteName="Login">
                 <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="Home" component={SliceBar} options={{ headerShown: false }} />
+                <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

@@ -35,9 +35,7 @@ const Maps = ({navigation}) => {
     }
 
     useEffect(() => {       
-        // Llamar a la función para obtener la ubicación
-        console.log("enter geolocation");
-        
+        // Llamar a la función para obtener la ubicación        
         getLocation().then(value => {            
             const lat = value.latitude;
             const lon = value.longitude;            
@@ -46,7 +44,7 @@ const Maps = ({navigation}) => {
                 setData(value[0]);
             });  
         }).catch(error =>{
-            console.error("error al buscar la ubicacion del dispositivo : ",error);
+            console.error("error al buscar la ubicación del dispositivo : ",error);
         });          
     }, []); 
  
@@ -72,7 +70,6 @@ const Maps = ({navigation}) => {
                     >   
                     { zoomLevel <= 0.05 && data &&(
                          data.map(value =>{
-                            //console.log(value);
                             return <Marker
                                 style={{ width: 32, height: 32 }}
                                 coordinate={{ latitude: value.latitude, longitude: value.longitude }}

@@ -1,41 +1,33 @@
 import { urlBase } from "../config/config";
 
-export const handleLogin = async(username,clave,navigation) => {
-    // Aquí agregarás la lógica de autenticación   
-    console.log("enter hangle login");
-    
-    
+export const handleLogin = async(username,psw) => {    
     try {
         const res = await fetch(urlBase + "/login", {
             method: 'POST', 
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({"userName": username,"clave": clave}), 
+            body: JSON.stringify({"u_name": username,"u_password": psw}), 
         }) 
         .then(response => {
             if (!response.ok) {throw new Error('Network response was not ok');}
             return response.json();
         }).then(data => {return data;})
         .catch(error => { return error;})      
-
-        //console.log(res);
-
-        if(res != undefined ){
-            if(res.auth === "success"){
-                navigation.navigate('Home');
+        
+        if(res.msg != undefined){
+            if(res.msg === "success"){               
+                return {'msg' : 'Usuario Correcto.' , 'auth' : true}
             }            
-            else{
-                console.log("Usuario incorrecto !!" , res);                
-                navigation.navigate('Home');
+            else {     
+                return {'msg' : 'Usuario o contraseña incorrectos.', 'auth' : false}
             }
         }
         else{
-            console.error("error de response !!");
+            return { 'msg' : 'Error de respuesta.' + res, 'auth' : false}
         }        
         
     } catch (error) {
-        // Manejar errores de solicitud
-        console.error("Error ", error);        
+        return {'msg' : 'Error de servidor.', 'auth' : false}    
     }
 };
