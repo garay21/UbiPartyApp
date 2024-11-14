@@ -12,12 +12,12 @@ const Routes = () => {
     return (        
         <NavigationContainer >
             <Stack.Navigator initialRouteName="Login">
-                <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
-                <Stack.Screen name="Home" component={SliceBar} options={{ headerShown: false }} />
+                <Stack.Screen name="Login" component={Login} options={{headerShown: false }}/>
                 <Stack.Screen name="SignIn" component={SignIn} options={{headerShown: false }}/>
+                <Stack.Screen name="Home" component={SliceBar} options={{headerShown: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
 };
-  
+
 export default Routes;

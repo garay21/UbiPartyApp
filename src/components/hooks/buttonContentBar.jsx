@@ -1,14 +1,14 @@
 import React from "react";
 import {View, TouchableOpacity, Text} from "react-native"
-import { styleSliceBar } from "../components/styles/style.jsx";
+import sliceBarStyle from "../styles/sliceBar.style";
 
 const ButtonContent = (props)=>{
     return(
         <TouchableOpacity
-            style={styleSliceBar.button}
+            style={sliceBarStyle.button}
             onPress={() => props.nav(props.name)}
         >
-            <Text style={styleSliceBar.buttonText}>{props.title}</Text>
+            <Text style={sliceBarStyle.buttonText}>{props.title}</Text>
         </TouchableOpacity>   
     );
 } 

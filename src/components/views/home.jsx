@@ -1,14 +1,14 @@
 import React from "react";
 import { View, TextInput, Text} from "react-native";
-import { style } from "../styles/style";
+import { styleApp } from "../styles/style";
 
 import TopBar from "../topBar";
 
 const Home = ({ navigation }) => {
     return (
-        <View style={style.container}>
+        <View style={styleApp.container}>
             <TopBar draw={navigation}/>
-            <Text style={style.textExample}>Hola mundo, bienvenido a ubi party !!</Text>
+            <Text style={styleApp.textExample}>Hola mundo, bienvenido a ubi party !!</Text>
         </View>
     ); 
 };

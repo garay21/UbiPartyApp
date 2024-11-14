@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import {style} from "./../../components/styles/style";
+import { styleApp } from '../../components/styles/style';
 
 const SwitchColor = (props)=>{
     const [isEnable , setEnable] = useState(false);
@@ -13,7 +11,7 @@ const SwitchColor = (props)=>{
     }
 
     return(
-        <View style={style.switchContainer}>
+        <View style={styleApp.switchContainer}>
             <Switch
                 trackColor={{false : "grey", true: "black"}}
                 thumbColor={isEnable ? "black":"white"}

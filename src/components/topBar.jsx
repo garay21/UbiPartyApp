@@ -1,15 +1,16 @@
 import React from "react";
 import { View,Text,TouchableOpacity, } from "react-native";
-import { styleTopBar } from "./styles/style";
 
-const TopBar = (props) => {
+import topBarStyle from "./styles/topBar.style";
+
+const TopBar = ({draw}) => {
   
     const openDraw = ()=>{
-        props.draw.openDrawer();
+        draw.openDrawer();
     }
 
     return (
-        <View style={styleTopBar.headerContainer}>
+        <View style={topBarStyle.headerContainer}>
             <TouchableOpacity                
                 onPress={openDraw}
             >

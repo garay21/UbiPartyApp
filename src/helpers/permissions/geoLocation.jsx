@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PermissionsAndroid } from 'react-native';
 import { savePermissionPreference, getPermissionPreference } from "./saveAndGetPermission";
-import { getPlataform } from "./../config/config";
+import { getPlataform } from "../../config/config";
 
 const requestLocationPermission = async ()=>{
     try {

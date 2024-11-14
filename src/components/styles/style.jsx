@@ -3,9 +3,10 @@ import Constants from "expo-constants";
 import colors from "./colors";
 import styleLogin from "./login.style";
 import styleSliceBar from "./sliceBar.style";
-import styleTopBar from "./topBar.style"
+import styleTopBar from "./topBar.style";
+import styleSignIn from "./signin.style"
 
-const style = StyleSheet.create(
+export const styleApp = StyleSheet.create(
     {
         container: {
             flex: 1,
@@ -28,7 +29,7 @@ const style = StyleSheet.create(
         },  
     }
 ); 
-const styleLogo = StyleSheet.create(
+export const styleLogo = StyleSheet.create(
     {
         logoContainer : {
             flex: 1,
@@ -42,7 +43,7 @@ const styleLogo = StyleSheet.create(
     }
 );
 
-const styleMap = StyleSheet.create({
+export const styleMap = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -84,12 +85,3 @@ const styleMap = StyleSheet.create({
         height:10,
     }}
 );
-
-module.exports = {
-    style,
-    styleLogin,
-    styleSliceBar,
-    styleTopBar,
-    styleLogo,
-    styleMap,
-}

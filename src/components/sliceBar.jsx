@@ -3,7 +3,7 @@ import { View,Text,TouchableOpacity, } from "react-native";
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-import Content from "./../helpers/contentSliceBar.jsx";
+import Content from "./hooks/contentSliceBar.jsx";
 
 import Main from "./main.jsx";
 
